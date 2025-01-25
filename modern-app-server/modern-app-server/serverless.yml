@@ -1,0 +1,42 @@
+service: levis-be
+frameworkVersion: '4'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: sa-east-1
+  environment:
+    PG_USER: 'postgres'
+    PG_HOST: 'localhost'
+    PG_DATABASE: 'native'
+    PG_PASSWORD: '3203'
+    PG_PORT: '5432'
+    PG_LOCAL_URL: ${env:PG_LOCAL_URL}
+
+functions:
+  agendas:
+    handler: src/agenda/controller/agenda.handler
+    events:
+      - http:
+          path: api/agendas
+          method: get
+  agendamento:
+    handler: src/agendamento/controller/agendamento.handler
+    events:
+      - http:
+          path: api/agendamento
+          method: post
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    host: 192.168.1.64
+    port: 25665
+
+package:
+  patterns:
+    - '!src/_tests_/**'
+
+resources:
