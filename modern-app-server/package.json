@@ -8,7 +8,9 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "dev": "sls offline -s dev",
-    "prod": "serverless deploy -s dev"
+    "prod": "serverless deploy -s dev",
+    "migrate:prepare": "ts-node ./GerarTabelaNova.ts",
+    "migrate:safe": "npm run migrate:prepare && npx drizzle-kit migrate"
   },
   "repository": {
     "type": "git",

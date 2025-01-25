@@ -20,11 +20,23 @@ functions:
       - http:
           path: api/agendas
           method: get
+  medicos:
+    handler: src/medicos/controller/medicos.handler
+    events:
+      - http:
+          path: api/medicos
+          method: get
   agendamento:
     handler: src/agendamento/controller/agendamento.handler
     events:
       - http:
           path: api/agendamento
+          method: post
+  cadastro:
+    handler: src/cadastro/controller/cadastro.handler
+    events:
+      - http:
+          path: api/cadastro
           method: post
 
 plugins:
@@ -33,7 +45,7 @@ plugins:
 custom:
   serverless-offline:
     host: 192.168.1.64
-    port: 25665
+    port: '25665'
 
 package:
   patterns:
