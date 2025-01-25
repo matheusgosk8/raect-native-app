@@ -173,4 +173,5 @@ dist
 .pnp.*
 
 modern-app-server/src/migrations 
+modern-app-server/migrations 
 expo/*
