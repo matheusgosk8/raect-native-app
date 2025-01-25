@@ -172,5 +172,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-modern-app-server/modern-app-server/src/migrations 
+modern-app-server/src/migrations 
 expo/*
